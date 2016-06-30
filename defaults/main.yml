@@ -1,5 +1,7 @@
 ---
-# defaults file for mediapeers.filebeat
+
+filebeat_log_dir: /var/log/filebeat
+filebeat_conf_dir: /etc/filebeat
 
 filebeat_logstash_server: localhost
 filebeat_logstash_server_port: 5044

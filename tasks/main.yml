@@ -22,7 +22,7 @@
 - name: Configure filebeat to read from logfiles and deliver to logstash
   template:
     src: filebeat.yml.j2
-    dest: /etc/filebeat/filebeat.yml
+    dest: "{{ filebeat_conf_dir }}/filebeat.yml"
   notify: restart filebeat
 
 - name: Enable filebeat on bootup and ensure it's started

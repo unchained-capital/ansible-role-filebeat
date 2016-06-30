@@ -155,7 +155,7 @@ logging:
   # To enable logging to files, to_files option has to be set to true
   files:
     # The directory where the log files will written to.
-    path: /var/log/filebeat
+    path: {{ filebeat_log_dir }}
 
     # The name of the files where the logs are written to.
     #name: mybeat
