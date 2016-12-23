@@ -1,5 +1,11 @@
 ---
 
+filebeat_version: 5.1.1
+filebeat_arch:    amd64
+filebeat_release_name: "filebeat-{{ filebeat_version }}-{{ filebeat_arch }}"
+filebeat_url_base: "https://artifacts.elastic.co/downloads/beats/filebeat/{{ filebeat_release_name }}"
+
+filebeat_download_dir: /usr/local/src
 filebeat_log_dir: /var/log/filebeat
 filebeat_conf_dir: /etc/filebeat
 
@@ -54,3 +60,6 @@ filebeat_prospectors:
 # Facilitates having a base set of prospectors plus extra prospectors per host
 # or group.
 filebeat_extra_prospectors: []
+
+filebeat_state: started
+filebeat_enabled: yes
