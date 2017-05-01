@@ -33,4 +33,4 @@
   service: name=filebeat state="{{ filebeat_state }}" enabled="{{ filebeat_enabled }}"
   tags: [filebeat, service]
   register: service_defn
-  failed_when: "{{ 'No paths given' not in service_defn.msg }}"
+  # failed_when: "{{ 'No paths given' not in service_defn.msg }}"
