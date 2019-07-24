@@ -47,6 +47,16 @@ filebeat:
 output:
 
   ### Logstash as output
+{% if filebeat_elasticsearch_url is defined %}
+  elasticsearch:
+    hosts: ["{{filebeat_elasticsearch_url}}"]
+    index: "filebeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+    template.enabled: true
+    template.path: "filebeat.template.json"
+    template.overwrite: false
+    index: "filebeat-%{+yyyy.MM.dd}"
+
+{% else %}
   logstash:
     # The Logstash hosts
     hosts: ["{{filebeat_logstash_server}}:{{filebeat_logstash_server_port}}"]
@@ -94,7 +104,7 @@ output:
       # Configure curve types for ECDHE based cipher suites
       #curve_types: []
 {% endif %}
-
+{% endif %}
 
   ### Console output
   # console:
